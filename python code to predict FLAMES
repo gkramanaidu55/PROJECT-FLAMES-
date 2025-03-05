@@ -1,0 +1,33 @@
+def flames_game(name1, name2):
+    # Step 1: Remove spaces and convert to lowercase
+    name1 = name1.replace(" ", "").lower()
+    name2 = name2.replace(" ", "").lower()
+
+    # Step 2: Find common letters
+    common_letters = set(name1).intersection(set(name2))
+
+    # Step 3: Remove common letters from both names
+    for letter in common_letters:
+        name1 = name1.replace(letter, "")
+        name2 = name2.replace(letter, "")
+
+    # Step 4: Count the remaining letters
+    total_letters = len(name1) + len(name2)
+
+    # Step 5: FLAMES acronym
+    flames = ["Friends", "Lovers", "Affectionate", "Marriage", "Enemies", "Siblings"]
+
+    # Determine the relationship
+    index = (total_letters % len(flames)) - 1  # Subtract 1 for zero-based indexing
+    if index < 0:
+        index = len(flames) - 1  # Handle cases where remainder is 0
+
+    return flames[index]
+
+# Input names
+name1 = "NAME REQUIRED"
+name2 = "NAME REQUIRED"
+
+# Get the result
+result = flames_game(name1, name2)
+print(f"The relationship between {name1} and {name2} is: {result}")
