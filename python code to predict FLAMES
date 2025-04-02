@@ -1,4 +1,4 @@
-# rams test
+# rams test 123
 def flames_game(name1, name2):
     # Step 1: Remove spaces and convert to lowercase
     name1 = name1.replace(" ", "").lower()
